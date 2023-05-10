@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# for static files and media files
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,3 +27,11 @@ urlpatterns = [
     path("admin-dashboard/", include("admindashboard.urls", namespace="admin_dashboard")),
     path("user-dashboard/", include("clients.urls", namespace="user_dashboard")),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+admin.site.site_header = "Smart Waste Management Admin"
+admin.site.site_title = "Smart Waste Management Admin Portal"
+admin.site.index_title = "Welcome to Smart Waste Management Admin Portal"
