@@ -48,7 +48,7 @@ class GarbageCollectionRequest(models.Model):
         ('accepted', 'Accepted'),
         ('rejected', 'Rejected')
     ]
-    status = models.CharField(max_length=20, choices=status_choices)
+    is_picked = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Garbage Collection Requests'

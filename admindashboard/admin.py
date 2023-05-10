@@ -21,8 +21,8 @@ class GarbageCollectionAdmin(admin.ModelAdmin):
 
 @admin.register(GarbageCollectionRequest)
 class GarbageCollectionRequestAdmin(admin.ModelAdmin):
-    list_display = ('user', 'bin', 'pickup_time', 'status')
-    list_filter = ('status',)
+    list_display = ('user', 'bin', 'pickup_time', 'is_picked')
+    list_filter = ('is_picked',)
     search_fields = ('bin__location',)
     ordering = ('pickup_time',)
 

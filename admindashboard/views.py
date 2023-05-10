@@ -16,13 +16,15 @@ def dashboard(request):
     total_collections = GarbageCollection.objects.all().count()
     total_requests = GarbageCollectionRequest.objects.all().count()
     total_disposals = WasteDisposal.objects.all().count()
+    total_pending_request = GarbageCollectionRequest.objects.filter(is_picked=False).count()
 
     context = {
         'total_clients': total_clients,
-        'total_users': total_users,
         'total_bins': total_bins,
         'total_collections': total_collections,
         'total_requests': total_requests,
-        'total_disposals': total_disposals
+        'total_disposals': total_disposals,
+        'total_users': total_users,
+        'total_pending_request': total_pending_request
     }
     return render(request, 'admin-dashboard/admin-dashboard.html', context)
