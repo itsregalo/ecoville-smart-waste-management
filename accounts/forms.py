@@ -8,9 +8,9 @@ from django.contrib import messages
 
 class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Enter your Email*', 
-                                                    'class':'form-control', 'id':'pass'}))
+                                                    'class':'form-control', 'id':'loginUsername'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password*',
-                                                    'class':'form-control border-right-0', 'data-toggle': 'password'}))
+                                                    'class':'form-control', 'id':'loginPassword'}))
 
     fields = ['email', 'password']
 
@@ -44,10 +44,6 @@ class LoginForm(forms.Form):
         return self.cleaned_data
 
 class RegistrationForm(forms.Form):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name*', 
-                                                    'class':'form-control'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last Name*', 
-                                                    'class':'form-control'}))
     email = forms.EmailField(label='Email', max_length=100, widget=forms.EmailInput(attrs={'class': 'form-control' , 'placeholder': 'Email'}))
     phone_number = forms.CharField(label='Phone No', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone No'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control border-right-0', 'placeholder': 'Password'}))
@@ -92,17 +88,10 @@ class RegistrationForm(forms.Form):
         return confirm_password
 
     def clean(self):
-        first_name = self.cleaned_data.get('first_name')
-        last_name = self.cleaned_data.get('last_name')
         email = self.cleaned_data.get('email')
         phone_number = self.cleaned_data.get('phone_number')
         password = self.cleaned_data.get('password')
         confirm_password = self.cleaned_data.get('confirm_password')
-
-        # name validation
-        if first_name and last_name:
-            if not first_name.isalpha() or not last_name.isalpha():
-                raise forms.ValidationError('Name must be characters only')
 
         if password and confirm_password:
             if password != confirm_password:
@@ -110,8 +99,6 @@ class RegistrationForm(forms.Form):
         return self.cleaned_data
 
     def save(self):
-        first_name = self.cleaned_data.get('first_name')
-        last_name = self.cleaned_data.get('last_name')
         email = self.cleaned_data.get('email')
         phone_number = self.cleaned_data.get('phone_number')
         password = self.cleaned_data.get('password')
@@ -125,8 +112,6 @@ class RegistrationForm(forms.Form):
         
         # create user without username field
         user = User.objects.create(
-            first_name=first_name,
-            last_name=last_name,
             email=email, 
             phone_number=phone_number,
             )

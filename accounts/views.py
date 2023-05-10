@@ -57,7 +57,7 @@ def LogInView(request, *args, **kwargs):
                     login(request, user)
                     if next_page is not None:  
                         return HttpResponseRedirect(next_page)
-                    return redirect('core:index')
+                    return redirect('core:dashboard')
                 messages.error(request,"invalid Login! Try again")
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
             print(login_form.errors)

@@ -60,25 +60,26 @@
                     <h1 class="mb-0 mb-sm-24">Create Account</h1>
                     <p class="mt-sm-8 mt-sm-0 text-black-60">Please sign up to your personal account if you want to use all our premium products.</p>
 
-                    <form class="mt-16 mt-sm-32 mb-8">
+                    <form class="mt-16 mt-sm-32 mb-8" method="POST" action="{% url 'accounts:register' %}">
+                        {% csrf_token %}
                         <div class="mb-16">
-                            <label for="registerUsername" class="form-label">Username :</label>
-                            <input type="text" class="form-control" id="registerUsername">
+                            <label for="registerEmail" class="form-label">E-mail :</label>
+                            {{register_form.email}}
                         </div>
 
                         <div class="mb-16">
-                            <label for="registerEmail" class="form-label">E-mail :</label>
-                            <input type="email" class="form-control" id="registerEmail">
+                            <label for="registerUsername" class="form-label">Phone Number :</label>
+                            {{register_form.phone_number}}
                         </div>
 
                         <div class="mb-16">
                             <label for="registerPassword" class="form-label">Password :</label>
-                            <input type="password" class="form-control" id="registerPassword">
+                            {{register_form.password}}
                         </div>
 
                         <div class="mb-16">
                             <label for="registerConfirmPassword" class="form-label">Confirm Password :</label>
-                            <input type="password" class="form-control" id="registerConfirmPassword">
+                            {{register_form.confirm_password}}
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">
@@ -88,7 +89,7 @@
 
                     <div class="col-12 hp-form-info text-center">
                         <span class="text-black-80 hp-text-color-dark-40 hp-caption me-4">Already have an account?</span>
-                        <a class="text-primary-1 hp-text-color-dark-primary-2 hp-caption" href="auth-login.html">Login</a>
+                        <a class="text-primary-1 hp-text-color-dark-primary-2 hp-caption" href="{% url 'accounts:login' %}">Login</a>
                     </div>
 
                     <div class="mt-48 mt-sm-96 col-12">
