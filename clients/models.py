@@ -17,3 +17,5 @@ class Client(models.Model):
         verbose_name_plural = 'Clients'
         db_table = 'clients'
 
+
+
