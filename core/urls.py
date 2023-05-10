@@ -5,4 +5,5 @@ app_name = "core"
 
 urlpatterns = [
     path('', index, name='index'),
+    path('dashboard/', dashboard, name='dashboard'),
 ]
