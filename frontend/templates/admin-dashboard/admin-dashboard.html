@@ -93,61 +93,46 @@
                     
 
                         <div class="col-12">
-                            <div class="card hp-project-ecommerce-table-card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="d-flex align-items-center justify-content-between mb-32">
-                                                <h5 class="mb-0">Scores Leaderboard</h5>
-                                                <p class="hp-p1-body mb-0 fw-medium text-black-100 hp-text-color-dark-0">View all</p>
-                                            </div>
+                            <div class="row g-32">
+                                <div class="col-12 col-md-12">
+                                    <div class="card hp-card-6 hp-eCommerceCardOne">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="row align-items-start justify-content-between">
+                                                        <div class="col">
+                                                            <h5 class="mb-0">Scores Leaderboard</h5>
+                                                        </div>
 
-                                            <div class="table-responsive">
-                                                <table class="table align-middle mb-0">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="min-width: 110px;">
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Date</span>
-                                                            </th>
-                                                            <th style="min-width: 180px;">
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Billing Name</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Amount</span>
-                                                            </th>
-                                                            <th>
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Status</span>
-                                                            </th>
-                                                            <th class="text-center">
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Invoice</span>
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
+                                                        <div class="col hp-flex-none w-auto">
+                                                            <p class="hp-badge-text text-black-80 hp-text-color-dark-30 mb-0">Score</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="ps-0">
-                                                                <span class="mb-0 fw-medium text-black-100 hp-text-color-dark-0">June 9, 2020</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="mb-0 text-black-80 hp-text-color-dark-30">Elon Musk</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="mb-0 text-black-80 hp-text-color-dark-30">$1,322.45</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="badge bg-success-4 hp-bg-dark-success text-success border-success">Paid</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="d-block text-black-60 hp-text-color-dark-50 text-center">
-                                                                    <i class="iconly-Light-Download"></i>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
+                                                <div class="col-12">
+                                                    
+                                                    
+                                                    {% for score in scores_leaderboard %}
+                                                        <div class="row align-items-center justify-content-between mt-32">
+                                                            <div class="col-6">
+                                                                <div class="d-flex align-items-center">
 
+                                                                    <p class="hp-p1-body mb-0">{{ score.user }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-6">
+                                                                <div class="d-flex align-items-center justify-content-end position-relative">
+                                                                    <p class="hp-badge-text mb-0 me-8">{{ score.score }}</p>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
                                                         
-                                                    </tbody>
-                                                </table>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -173,40 +158,46 @@
                                                                 <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Date</span>
                                                             </th>
                                                             <th style="min-width: 180px;">
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Billing Name</span>
+                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Email</span>
                                                             </th>
                                                             <th>
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Amount</span>
+                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Type</span>
                                                             </th>
                                                             <th>
                                                                 <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Status</span>
-                                                            </th>
-                                                            <th class="text-center">
-                                                                <span class="hp-badge-size d-block pb-16 fw-normal text-black-60 hp-text-color-dark-50 text-uppercase">Invoice</span>
                                                             </th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="ps-0">
-                                                                <span class="mb-0 fw-medium text-black-100 hp-text-color-dark-0">June 9, 2020</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="mb-0 text-black-80 hp-text-color-dark-30">Elon Musk</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="mb-0 text-black-80 hp-text-color-dark-30">$1,322.45</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="badge bg-success-4 hp-bg-dark-success text-success border-success">Paid</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="d-block text-black-60 hp-text-color-dark-50 text-center">
-                                                                    <i class="iconly-Light-Download"></i>
-                                                                </span>
-                                                            </td>
-                                                        </tr>
+                                                        
+                                                        {% for req in latest_requests %}
+                                                            <tr>
+                                                                <td class="ps-0">
+                                                                    <span class="mb-0 fw-medium text-black-100 hp-text-color-dark-0">{{req.pickup_time | date:"F d, Y"}}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="mb-0 text-black-80 hp-text-color-dark-30">{{ req.user.email }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="mb-0 text-black-80 hp-text-color-dark-30">{{ req.bin.bin_type }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                    {% if req.is_picked %}
+                                                                        <span class="badge bg-success-4 hp-bg-dark-success text-success border-success">
+                                                                            Picked
+                                                                        </span>
+                                                                    {% else %}
+                                                                        <span class="badge bg-warning-4 hp-bg-dark-warning text-warning border-warning">
+                                                                            Pending
+                                                                        </span>
+                                                                    {% endif %}
+                                                                        
+                                                                </td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                            
 
                                                         
                                                     </tbody>
@@ -218,51 +209,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
-                            <div class="row g-32">
-                                <div class="col-12 col-md-12">
-                                    <div class="card hp-card-6 hp-eCommerceCardOne">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="row align-items-start justify-content-between">
-                                                        <div class="col">
-                                                            <h5 class="mb-0">Browser states</h5>
-                                                        </div>
-
-                                                        <div class="col hp-flex-none w-auto">
-                                                            <p class="hp-badge-text text-black-80 hp-text-color-dark-30 mb-0">May 2021</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-12">
-                                                    <div class="row align-items-center justify-content-between mt-32">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="me-8">
-                                                                    <img src="{% static 'app-assets/img/browser/chrome.svg' %}" alt="Google Chrome">
-                                                                </div>
-
-                                                                <p class="hp-p1-body mb-0">Google Chrome</p>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center justify-content-end position-relative">
-                                                                <p class="hp-badge-text mb-0 me-8">50.2%</p>
-                                                                <div id="browser-chrome-chart"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

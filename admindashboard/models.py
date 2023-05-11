@@ -42,7 +42,7 @@ class GarbageCollection(models.Model):
 class GarbageCollectionRequest(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bin = models.ForeignKey(GarbageBin, on_delete=models.CASCADE)
-    pickup_time = models.DateTimeField()
+    pickup_time = models.DateTimeField(auto_now_add=True)
     status_choices = [
         ('pending', 'Pending'),
         ('accepted', 'Accepted'),
